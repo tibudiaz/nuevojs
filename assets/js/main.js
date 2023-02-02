@@ -9,7 +9,7 @@ function login() {
         var pass = "pas";
         if (email === user && password === pass) {
             // Redirigir al usuario a la página principal
-            window.location.assign("/sub-pages/privado.html")
+            window.location.assign("../../sub-pages/privado.html")
             alert("Inicio de sesión exitoso")
         } else {
             alert("Usuario o contraseña incorrectos.");
