@@ -43,8 +43,8 @@ let autos = [
     document.getElementById("toggleButton").addEventListener("click", function(){
         let list = document.getElementById("vehicleList");
         if (list.style.display === "none") {
-          list.style.display = "block";
+            list.style.display = "block";
         } else {
-          list.style.display = "none";
+            list.style.display = "none";
         }
-      });
+    });

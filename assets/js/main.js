@@ -14,7 +14,6 @@ document.getElementById("submitBtn").addEventListener("click", function() {
   }
 });
 
-
 // sweet alert
 
 function enviar(){
@@ -63,38 +62,30 @@ Swal.fire({
 
   })
 }
-// function bien(){
-//     Swal.fire({
-//         icon: 'success',
-//         title: 'Administrador',
-//         text: 'Iniciaste Sesión',
-    
-//       })
-//     }    
 
     let timerInterval
 function bien(){
     Swal.fire({
         icon: 'success',
-      title: 'Bienvenido Administrador',
-      html: 'Lo estamos redirigiendo. Aguarde...',
-      timer: 2500,
-      timerProgressBar: true,
-      didOpen: () => {
+        title: 'Bienvenido Administrador',
+        html: 'Lo estamos redirigiendo. Aguarde...',
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: () => {
         Swal.showLoading()
         const b = Swal.getHtmlContainer().querySelector('b')
         timerInterval = setInterval(() => {
-          b.textContent = Swal.getTimerLeft()
+            b.textContent = Swal.getTimerLeft()
         }, 100)
-      },
-      willClose: () => {
+    },
+        willClose: () => {
         clearInterval(timerInterval)
         window.location.assign("sub-pages/privado.html");
-      }
+    }
     }).then((result) => {
       /* Read more about handling dismissals below */
-      if (result.dismiss === Swal.DismissReason.timer) {
+        if (result.dismiss === Swal.DismissReason.timer) {
         console.log('se cerro el alert')
-      }
+        }
     })
 }

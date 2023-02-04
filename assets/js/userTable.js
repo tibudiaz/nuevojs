@@ -1,8 +1,6 @@
-//datos cargados por el usuario
 
 
 function capturarDatos() {
-    // Recolectar los datos del formulario
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
     var fechaNacimiento = document.getElementById("fechaNacimiento").value;
@@ -16,7 +14,6 @@ function capturarDatos() {
     var monto = document.getElementById("monto").value;
     var meses = document.getElementById("meses").value;
     var cuota = document.getElementById("pagoMes").value;
-    // Crear un objeto con los datos
     var datos = {
         "nombre": nombre,
         "apellido": apellido,
@@ -31,24 +28,16 @@ function capturarDatos() {
         "monto": monto,
         "meses": meses,
         "cuota": cuota
-
     };
-
-    // Recuperar la matriz del almacenamiento local (si existe)
     var userData = [];
     var storedData = localStorage.getItem("userData");
     if (storedData) {
         userData = JSON.parse(storedData);
     }
-
-    // Agregar el nuevo objeto a la matriz
     userData.push(datos);
-
-    // Convertir la matriz en una cadena y guardarla en el almacenamiento local
     localStorage.setItem("userData", JSON.stringify(userData));
 }
 
-//crear tabla para los usuarios cargados
 function createUserTable(userData) {
     
     var storedData = localStorage.getItem("userData");
@@ -62,57 +51,57 @@ function createUserTable(userData) {
     var user = userData[i];
     var tableRow = document.createElement("tr");
 
-var nombreCell = document.createElement("td");
-nombreCell.innerHTML = user.nombre;
-tableRow.appendChild(nombreCell);
+    var nombreCell = document.createElement("td");
+    nombreCell.innerHTML = user.nombre;
+    tableRow.appendChild(nombreCell);
 
-var apellidoCell = document.createElement("td");
-apellidoCell.innerHTML = user.apellido;
-tableRow.appendChild(apellidoCell);
+    var apellidoCell = document.createElement("td");
+    apellidoCell.innerHTML = user.apellido;
+    tableRow.appendChild(apellidoCell);
 
-var fechaNacimientoCell = document.createElement("td");
-fechaNacimientoCell.innerHTML = user.fechaNacimiento;
-tableRow.appendChild(fechaNacimientoCell);
+    var fechaNacimientoCell = document.createElement("td");
+    fechaNacimientoCell.innerHTML = user.fechaNacimiento;
+    tableRow.appendChild(fechaNacimientoCell);
 
-var dniCell = document.createElement("td");
-dniCell.innerHTML = user.dni;
-tableRow.appendChild(dniCell);
+    var dniCell = document.createElement("td");
+    dniCell.innerHTML = user.dni;
+    tableRow.appendChild(dniCell);
 
-var celularCell = document.createElement("td");
-celularCell.innerHTML = user.celular;
-tableRow.appendChild(celularCell);
+    var celularCell = document.createElement("td");
+    celularCell.innerHTML = user.celular;
+    tableRow.appendChild(celularCell);
 
-var emailCell = document.createElement("td");
-emailCell.innerHTML = user.email;
-tableRow.appendChild(emailCell);
+    var emailCell = document.createElement("td");
+    emailCell.innerHTML = user.email;
+    tableRow.appendChild(emailCell);
 
-var direccionCell = document.createElement("td");
-direccionCell.innerHTML = user.direccion;
-tableRow.appendChild(direccionCell);
+    var direccionCell = document.createElement("td");
+    direccionCell.innerHTML = user.direccion;
+    tableRow.appendChild(direccionCell);
 
-var localidadCell = document.createElement("td");
-localidadCell.innerHTML = user.localidad;
-tableRow.appendChild(localidadCell);
+    var localidadCell = document.createElement("td");
+    localidadCell.innerHTML = user.localidad;
+    tableRow.appendChild(localidadCell);
 
-var provinciaCell = document.createElement("td");
-provinciaCell.innerHTML = user.provincia;
-tableRow.appendChild(provinciaCell);
+    var provinciaCell = document.createElement("td");
+    provinciaCell.innerHTML = user.provincia;
+    tableRow.appendChild(provinciaCell);
 
-var codigoPostalCell = document.createElement("td");
-codigoPostalCell.innerHTML = user.codigoPostal;
-tableRow.appendChild(codigoPostalCell);
+    var codigoPostalCell = document.createElement("td");
+    codigoPostalCell.innerHTML = user.codigoPostal;
+    tableRow.appendChild(codigoPostalCell);
 
-var montoCell = document.createElement("td");
-montoCell.innerHTML = user.monto;
-tableRow.appendChild(montoCell);
+    var montoCell = document.createElement("td");
+    montoCell.innerHTML = user.monto;
+    tableRow.appendChild(montoCell);
 
-var mesesCell = document.createElement("td");
-mesesCell.innerHTML = user.meses;
-tableRow.appendChild(mesesCell);
+    var mesesCell = document.createElement("td");
+    mesesCell.innerHTML = user.meses;
+    tableRow.appendChild(mesesCell);
 
-var cuotaCell = document.createElement("td");
-cuotaCell.innerHTML = user.cuota;
-tableRow.appendChild(cuotaCell);
-document.getElementById("userData").appendChild(tableRow);
+    var cuotaCell = document.createElement("td");
+    cuotaCell.innerHTML = user.cuota;
+    tableRow.appendChild(cuotaCell);
+    document.getElementById("userData").appendChild(tableRow);
     }
 }
