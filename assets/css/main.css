@@ -176,4 +176,17 @@ table tr, th{
     margin: 0 auto;
     margin-top: 2px;
   }
+.datos{
+  width: 80%;
+  margin: 0 auto;
+}
+}
+
+.lista-autos{
+  list-style: none;
+}
+
+.busqueda-autos{
+  width: 70%;
+  margin: 0 auto;
 }

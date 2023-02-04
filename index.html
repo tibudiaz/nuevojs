@@ -41,7 +41,6 @@
                     <div class="col">
                         <input type="text" class="form-control" id="apellido" placeholder="Apellido" aria-label="Apellido">
                     </div>
-                    <br>
                 </div>
                 <br>
                 <div class="row g-3">
@@ -52,7 +51,6 @@
                     <div class="col">
                         <input type="text" id="dni" class="form-control" placeholder="Dni" aria-label="Dni">
                     </div>
-                    <br>
                 </div>
                 <br>
                 <div class="row g-3">
@@ -84,24 +82,60 @@
                 </div>
             </form>
         </div>
+<!-- autos disponibles -->
+        <section>
+            <br>
+            <br>
+            <div class="container">
+                <h3>Buscador de Autos disponibles y su maximo a financiar</h3>
+                <button id="toggleButton" class="btn btn-primary">Mostrar/Ocultar Lista</button>
+                    <ul id="vehicleList" style="display: none;" class="lista-autos">
+                    <li>Gol trend</li>
+                    <li>Fiat Cronos</li>
+                    <li>Chevrolet Cruze</li>
+                    <li>Peugeot 308</li>
+                    <li>Sandero Rs</li>
+                    <li>Up</li>
+                    </ul>
+                <form id="searchForm" class="busqueda-autos">
+                    <br><div class="form-group">
+                        <label for="searchOption">Elige una opción de búsqueda:</label>
+                        <select class="form-control" id="searchOption">
+                            <option value="1">Marca</option>
+                            <option value="2">Modelo</option>
+                            <option value="3">Año</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="searchCriteria">Ingresa tu busqueda:</label>
+                        <input type="text" class="form-control" id="searchCriteria">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" onclick="buscar(); return false;">Buscar</button>
+                </form>
+                <br>
+                <div id="searchResults"></div>
+            </div>
+        </section>
 <!-- financiacion -->
             <br>
             <label class="datos">
                 Monto del préstamo:
                 <label for="customRange2" class="form-label"><span id="valor">$100.000</span></label>
-                <input type="range" class="form-range" min="100000" max="9000000" step="10000" value="100000" id="monto" oninput="displayValue(this.value)">
+                <input type="range" class="form-range" min="100000" max="3000000" step="10000" value="100000" id="monto" oninput="displayValue(this.value)">
             </label>
             <br>
             <br>
             <label class="datos">
                 <select class="form-select form-select-lg" id="meses" aria-label=".form-select-lg example">
-                    <option selected>Selecciona la cantidad de meses</option>
-                    <option value="12">12 meses</option>
-                    <option value="18">18 meses</option>
-                    <option value="24">24 meses</option>
-                    <option value="36">36 meses</option>
-                    <option value="48">48 meses</option>
-                    <option value="60">60 meses</option>
+                    <option selected>Cantidad de Cuotas</option>
+                    <option value="12">12 Cuotas</option>
+                    <option value="18">18 Cuotas</option>
+                    <option value="24">24 Cuotas</option>
+                    <option value="36">36 Cuotas</option>
+                    <option value="48">48 Cuotas</option>
+                    <option value="60">60 Cuotas</option>
                 </select>
             </label>
             <br>
@@ -124,7 +158,7 @@
             <br>
             <br>
     </section>
-
+    <script src="assets/js/autos.js"></script>
     <script src="assets/js/userTable.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/calculadora.js"></script>
