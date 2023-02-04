@@ -132,17 +132,16 @@ h4{
 }
 
 .lista{
-  list-style: none;
-  border: 5px solid rgba(92, 212, 228, 0.568);
-  width: 70%;
-  background-color:  rgba(27, 112, 112, 0.13);
-  margin: 0 auto;
-  table-layout: auto;
+
+display: flex;
+justify-content: center;
+
 
 }
 
 table tr, th{
-  border: 1px solid white;
+  border: 5px solid rgba(92, 212, 228, 0.568);
+  background-color:  rgba(27, 112, 112, 0.13);
 }
 
 .priv{
