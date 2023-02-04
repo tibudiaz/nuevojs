@@ -1,23 +1,18 @@
 
 // funcion de login
-function login() {
-    if (document.getElementById("loginForm").checkValidity()) {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        
-        var user = "prueba@prueba";
-        var pass = "pas";
-        if (email === user && password === pass) {
-            // Redirigir al usuario a la página principal
-            window.location.assign("assets/js/sub-pages/privado.html")
-            alert("Inicio de sesión exitoso")
-        } else {
-            alert("Usuario o contraseña incorrectos.");
-        }
-    } else {
-        alert("Por favor, complete todos los campos.");
-    }
-}
+const username = "admin";
+const password = "1234";
+
+document.getElementById("submitBtn").addEventListener("click", function() {
+  const inputUsername = document.getElementById("username").value;
+  const inputPassword = document.getElementById("password").value;
+
+  if (inputUsername === username && inputPassword === password) {
+    window.open("sub-pages/privado.html", "_blank");
+  } else {
+    alert("Nombre de usuario o contraseña incorrectos");
+  }
+});
 //boton calcular
 var button = document.getElementById("myButton");
 

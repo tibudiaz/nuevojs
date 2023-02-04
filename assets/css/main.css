@@ -81,9 +81,11 @@ body.dark-mode {
 .login{
     background-color: rgba(0, 255, 255, 0.068);
     margin-top: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+}
+.user{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 .text{
     color: black;
@@ -97,10 +99,6 @@ body.dark-mode {
     margin-bottom: 0px;
     color: rgb(56, 54, 54);
     font-size: 20px
-}
-.user{
-    margin-left: 120vh;
-    margin-top: 0px;
 }
 .client input{
     border-radius: 10px;
