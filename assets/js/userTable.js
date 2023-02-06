@@ -1,6 +1,15 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyAcbcO1Fi6cOWtFGBkKoGdysuLejEI4BjU",
+    authDomain: "creditos-376918.firebaseapp.com",
+    databaseURL: "https://creditos-376918-default-rtdb.firebaseio.com",
+    projectId: "creditos-376918",
+    storageBucket: "creditos-376918.appspot.com",
+    messagingSenderId: "443944082961",
+    appId: "1:443944082961:web:3afd04f1c67af243568fb9"
+    };
 
-
-function capturarDatos() {
+    
+    function capturarDatos() {
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
     var fechaNacimiento = document.getElementById("fechaNacimiento").value;
@@ -15,93 +24,73 @@ function capturarDatos() {
     var meses = document.getElementById("meses").value;
     var cuota = document.getElementById("pagoMes").value;
     var datos = {
-        "nombre": nombre,
-        "apellido": apellido,
-        "fechaNacimiento": fechaNacimiento,
-        "dni": dni,
-        "celular": celular,
-        "email": email,
-        "direccion": direccion,
-        "localidad": localidad,
-        "provincia": provincia,
-        "codigoPostal": codigoPostal,
-        "monto": monto,
-        "meses": meses,
-        "cuota": cuota
+    "nombre": nombre,
+    "apellido": apellido,
+    "fechaNacimiento": fechaNacimiento,
+    "dni": dni,
+    "celular": celular,
+    "email": email,
+    "direccion": direccion,
+    "localidad": localidad,
+    "provincia": provincia,
+    "codigoPostal": codigoPostal,
+    "monto": monto,
+    "meses": meses,
+    "cuota": cuota
     };
-    var userData = [];
-    var storedData = localStorage.getItem("userData");
-    if (storedData) {
-        userData = JSON.parse(storedData);
-    }
-    userData.push(datos);
-    localStorage.setItem("userData", JSON.stringify(userData));
-}
-
-function createUserTable(userData) {
+        // Envia los datos a Firebase
+        database.ref().push(datos);
     
-    var storedData = localStorage.getItem("userData");
-    if (storedData) {
-        userData = JSON.parse(storedData);
-    } else {
-        return;
+        // Almacena los datos en el local storage
+        var userData = [];
+        var storedData = localStorage.getItem("userData");
+        if (storedData) {
+            userData = JSON.parse(storedData);
+        }
+        userData.push(datos);
+        localStorage.setItem("userData", JSON.stringify(userData));
     }
 
-    for (var i = 0; i < userData.length; i++) {
-    var user = userData[i];
-    var tableRow = document.createElement("tr");
-
-    var nombreCell = document.createElement("td");
-    nombreCell.innerHTML = user.nombre;
-    tableRow.appendChild(nombreCell);
-
-    var apellidoCell = document.createElement("td");
-    apellidoCell.innerHTML = user.apellido;
-    tableRow.appendChild(apellidoCell);
-
-    var fechaNacimientoCell = document.createElement("td");
-    fechaNacimientoCell.innerHTML = user.fechaNacimiento;
-    tableRow.appendChild(fechaNacimientoCell);
-
-    var dniCell = document.createElement("td");
-    dniCell.innerHTML = user.dni;
-    tableRow.appendChild(dniCell);
-
-    var celularCell = document.createElement("td");
-    celularCell.innerHTML = user.celular;
-    tableRow.appendChild(celularCell);
-
-    var emailCell = document.createElement("td");
-    emailCell.innerHTML = user.email;
-    tableRow.appendChild(emailCell);
-
-    var direccionCell = document.createElement("td");
-    direccionCell.innerHTML = user.direccion;
-    tableRow.appendChild(direccionCell);
-
-    var localidadCell = document.createElement("td");
-    localidadCell.innerHTML = user.localidad;
-    tableRow.appendChild(localidadCell);
-
-    var provinciaCell = document.createElement("td");
-    provinciaCell.innerHTML = user.provincia;
-    tableRow.appendChild(provinciaCell);
-
-    var codigoPostalCell = document.createElement("td");
-    codigoPostalCell.innerHTML = user.codigoPostal;
-    tableRow.appendChild(codigoPostalCell);
-
-    var montoCell = document.createElement("td");
-    montoCell.innerHTML = user.monto;
-    tableRow.appendChild(montoCell);
-
-    var mesesCell = document.createElement("td");
-    mesesCell.innerHTML = user.meses;
-    tableRow.appendChild(mesesCell);
-
-    var cuotaCell = document.createElement("td");
-    cuotaCell.innerHTML = user.cuota;
-    tableRow.appendChild(cuotaCell);
-    document.getElementById("userData").appendChild(tableRow);
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+    function createUserTable() {
+        var userData = [];
+        var table = document.getElementById("user-table");
+        database.ref().once("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var user = childSnapshot.val();
+                userData.push(user);
+            });
+        
+            for (var i = 0; i < userData.length; i++) {
+                var row = table.insertRow(i + 1);
+                var nombreCell = row.insertCell(0);
+                var apellidoCell = row.insertCell(1);
+                var fechaNacimientoCell = row.insertCell(2);
+                var dniCell = row.insertCell(3);
+                var celularCell = row.insertCell(4);
+                var emailCell = row.insertCell(5);
+                var direccionCell = row.insertCell(6);
+                var localidadCell = row.insertCell(7);
+                var provinciaCell = row.insertCell(8);
+                var codigoPostalCell = row.insertCell(9);
+                var montoCell = row.insertCell(10);
+                var mesesCell = row.insertCell(11);
+                var cuotaCell = row.insertCell(12);
+                nombreCell.innerHTML = userData[i].nombre;
+                apellidoCell.innerHTML = userData[i].apellido;
+                fechaNacimientoCell.innerHTML = userData[i].fechaNacimiento;
+                dniCell.innerHTML = userData[i].dni;
+                celularCell.innerHTML = userData[i].celular;
+                emailCell.innerHTML = userData[i].email;
+                direccionCell.innerHTML = userData[i].direccion;
+                localidadCell.innerHTML = userData[i].localidad;
+                provinciaCell.innerHTML = userData[i].provincia;
+                codigoPostalCell.innerHTML = userData[i].codigoPostal;
+                montoCell.innerHTML = userData[i].monto;
+                mesesCell.innerHTML = userData[i].meses;
+                cuotaCell.innerHTML = userData[i].cuota;
+                
+            }
+        });
     }
-}

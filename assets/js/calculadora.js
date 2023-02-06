@@ -40,19 +40,4 @@ function calculateInterest(monto1, meses1) {
   return monto1 * rate;
 }
 
-function displayValue(value) {
-  let stringValue = value.toString();
-  let result = '';
-  let count = 0;
-
-  for (let i = stringValue.length - 1; i >= 0; i--) {
-      count++;
-      result = stringValue[i] + result;
-      if (count === 3 && i > 0) {
-          result = '.' + result;
-          count = 0;
-      }
-      }
-  document.getElementById("valor").innerHTML = "$" + result;
-}
 

@@ -180,6 +180,13 @@ table tr, th{
   width: 80%;
   margin: 0 auto;
 }
+#btn{
+  width: 80%;
+  margin: 0 auto;
+}
+#submitBtn{
+  margin-top: 10px;
+}
 }
 
 .lista-autos{
