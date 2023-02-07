@@ -50,8 +50,11 @@ var firebaseConfig = {
         userData.push(datos);
         localStorage.setItem("userData", JSON.stringify(userData));
     }
+    if (firebase.apps.length === 0) {
+        firebase.initializeApp(firebaseConfig);
+    }
+    
 
-    firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
     function createUserTable() {
         var userData = [];
